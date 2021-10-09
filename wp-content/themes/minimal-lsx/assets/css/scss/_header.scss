@@ -1,0 +1,305 @@
+.header-wrap{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: transparent;
+
+    @include transition(background-color, 0.2s, ease-in-out, 0s );
+
+    .window-scrolled &{
+        background-color: $header-bg-color;
+
+        > div{
+            display: none !important;
+        }
+    }
+
+    #masthead{
+        background-color: transparent;
+        box-shadow: none;
+
+        @include transition(background-color, 0.2s, ease-in-out, 0s );
+        
+        .window-scrolled &{
+            @include desktop{
+                position: relative !important;
+                z-index: auto !important;;
+                top: 0 !important;
+            }
+        }
+
+        &.masthead-open{
+            background-color: $header-bg-color; 
+        }
+
+        > .container {
+            padding-left: 15px;
+            padding-right: 15px;
+
+           @include tablet-portrait {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+           @include tablet-landscape {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            @include desktop{
+                height: auto;
+                min-height: 0;
+                padding: 0px;
+                width: 100%;
+                flex-flow: row wrap;
+            }
+        }
+        .navbar-header {
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 10px 0;
+
+           @include tablet-landscape {
+                margin: 20px 0;
+            }
+            @include desktop{
+                margin: 23px 0 23px 6.25%;
+
+                @include transition(all, 0.2s, ease-in-out, 0s );
+
+                .window-scrolled &{
+                    margin: 10px 0 10px 6.25%;
+                }
+            }
+			
+            .wrapper-toggle {
+                background-color: transparent;
+                width: auto;
+                margin: 0 0 0 auto;
+
+
+                .navbar-toggle {
+                    background-color: transparent;
+                    padding: 0;
+                    float: none;
+
+					> .icon-bar{
+						background-color: $primary-bg-color;
+					}
+                }
+                .mobile-menu-title{
+                    display: none;
+                }
+            }
+            .custom-logo-link {
+                height: 50px;
+                width: auto;
+
+                @include transition(all, 0.4s, ease-in-out, 0s );
+        
+        .window-scrolled &{
+            height: 25px;
+
+           @include tablet-portrait {
+                height: 40px;
+            }
+
+            @include desktop {
+                height: 40px;
+            }
+        }
+
+               @include tablet-portrait {
+                    height: 60px;
+                }
+                @include desktop{
+                    display: block;
+                    height: 53px;
+                }
+
+                img {
+                    max-width: none;
+                    margin: 0;
+                    max-height: none;
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+
+        .primary-navbar{
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 70px;
+            height: auto;
+            background-color: $header-bg-color;
+            margin: 0;
+            padding: 0;
+            max-height: calc(100% - 45px);
+
+            @include transition(inset, 0.4s, ease-in-out, 0s );
+
+            .window-scrolled &{
+                top: 45px;
+
+               @include tablet-portrait {
+                    top: 60px;
+					max-height: calc(100% - 60px);
+            	}
+
+                @include desktop {
+                    top: 0;
+                }
+            }
+
+           @include tablet-portrait {
+                top: 80px;
+                max-height: calc(100% - 80px);
+            }
+
+            @include desktop {
+                top: 0;
+                max-height: none;
+                position: relative;
+                width: auto;
+                background-color: transparent;
+                padding-right: 6.25%;
+                margin-right: 0;
+                margin-left: auto;
+                flex: 0 0 auto;
+                align-self: center;
+
+                &:after {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    position: absolute;
+                    right: 0;
+                    bottom: -23px;
+                    background: rgba(45,119,164,0.3);
+                }
+            }
+
+            
+            > .nav {
+                background-color: transparent;
+                padding: 20px;
+                margin: 0;
+                letter-spacing: 0;
+
+               @include tablet-portrait {
+                    padding: 20px 70px;
+                }
+                @include desktop {
+                    padding: 0;
+                }
+
+                .menu-item {
+                    @include desktop {
+                        margin-left: 19px;
+                        
+                        &:hover{
+                            > a{
+                                background-color: transparent; 
+                            }
+                        }
+
+                        &:first-child{
+                            margin-left: 0;
+                        }
+                    }
+
+                    &.active{
+                        @include desktop {
+                            &:hover{
+                                > a{
+                                    background-color: transparent; 
+                                }
+                            }
+                        }
+                        > a {
+                            font-weight: 300;
+                            color: $secondary-color;
+                            pointer-events: none;
+                            
+                            @include desktop{
+                                color: $header-bg-color;
+
+								.window-scrolled &{
+									color: $secondary-color;
+								}
+                                
+                                &:hover{  
+                                    background-color: transparent;
+                                }
+                                &:after {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                    > a {
+                        background-color: transparent;
+                        color: $white;
+                        font-weight: 300;
+                        font-size: 16px;
+                        text-transform: none;
+
+                        -webkit-transition: all 0.4s ease-in-out;
+                        -ms-transition: all 0.4s ease-in-out;
+                        transition: all 0.4s ease-in-out;
+
+                        @include desktop{
+							color: $secondary-color;
+							.window-scrolled &{
+								color: $white;
+							}
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                width: 0;
+                                height: 3px;
+                                bottom: -23px;
+                                left: 0;
+                                background-color: $header-bg-color;
+
+                                -webkit-transition: width 0.4s ease-in-out;
+                                -ms-transition: width 0.4s ease-in-out;
+                                transition: width 0.4s ease-in-out;
+
+								.window-scrolled &{
+									background-color: $secondary-color;
+								}
+                            }
+                            &:hover{
+                                &:after{
+                                    width: 100%;
+                                }
+                                
+                            }
+                        }
+
+                        &:hover{
+                            color: $secondary-color;
+
+                            @include desktop{
+                                color: $header-bg-color;
+                                background-color: transparent;
+
+								.window-scrolled &{
+									color: $secondary-color;
+								}
+                            }
+                        }
+
+                        @include desktop {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
